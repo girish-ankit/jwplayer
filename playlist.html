@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jwplayer/7.1.4/jwplayer.js"></script>
+    </head>
+    
+    <body>
+        
+        <div id="myElement"></div>
+ <ul id="video-data">
+<li><a href="javascript:void(0)" title="videos/a.webm" rel="images/1.jpg">Video 1</a></li>
+<li><a href="javascript:void(0)" title="videos/b.mp4" rel="images/2.jpg">Video 2</a></li>
+<li><a href="javascript:void(0)" title="videos/c.mp4" rel="images/3.jpg">Video 3</a></li>
+
+</ul>
+
+<script>
+var playerInstance = jwplayer("myElement");
+playerInstance.setup({
+	 file: "videos/a.webm",
+        image: "images/1.jpg"
+	
+});
+</script>
+
+
+<script>
+  var trigger = $("#video-data li a");
+trigger.click(function () {
+   var vid = $(this).attr('title');
+   var iid = $(this).attr('rel');
+   console.log(vid);
+   jwplayer("myElement").load([{ file: vid, image:iid }]);
+  // jwplayer("myElement").play();
+});
+
+</script>
+
+
+
+        
+       
+    </body>
+</html>
